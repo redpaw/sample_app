@@ -31,5 +31,7 @@ test "successful edit with friendly forwarding" do
     @user.reload
     assert_equal name,  @user.name
     assert_equal email, @user.email
+    log_in_as(@user)
+    assert_select user_path(@user)
   end
 end
